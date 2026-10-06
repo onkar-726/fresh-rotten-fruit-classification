@@ -3,27 +3,33 @@ Time-block split with a time buffer for the fresh/rotten fruit dataset.
 
 Why: the source images are screenshots taken seconds apart, so neighbouring
 screenshots of the same class are usually the same physical fruit.
+
 Grouping by exact minute still leaves train/test photos only a few seconds
 apart. This script instead:
 
-  1. sorts the source photos of each class by capture time,
-  2. cuts each class timeline into contiguous blocks,
-  3. assigns WHOLE blocks to train / validation / test (per class, seeded),
-  4. drops every source photo that lies within BUFFER_SECONDS of a source
-     photo of a different split (same class), so the splits are separated
-     by a real time gap.
+1. sorts the source photos of each class by capture time,
+2. cuts each class timeline into contiguous blocks,
+3. assigns WHOLE blocks to train / validation / test (per class, seeded),
+4. drops every source photo that lies within BUFFER_SECONDS of a source
+   photo of a different split (same class), so the splits are separated
+   by a real time gap.
 
 All augmented copies of a source photo always stay with that source photo.
 
 Usage (from the repo root):
+
     python src/make_time_block_split.py
 
 or from a notebook:
+
     from src.make_time_block_split import build_time_block_split
     train_df, val_df, test_df = build_time_block_split("data/session_aware")
 """
 
 from pathlib import Path
+
+import hashlib
+import json
 
 import numpy as np
 import pandas as pd
@@ -34,6 +40,7 @@ BLOCK_SIZE = 25
 BUFFER_SECONDS = 60
 VAL_FRACTION = 0.15
 TEST_FRACTION = 0.15
+
 
 CLASS_NAMES = [
     "freshapples",
@@ -57,7 +64,7 @@ def load_all_images(input_dir):
         for name in (
             "train",
             "validation",
-            "test"
+            "test",
         )
     ]
 
@@ -349,7 +356,6 @@ def build_time_block_split(
     output_dir="data/time_block",
     save=True
 ):
-
     images = load_all_images(
         input_dir
     )
@@ -475,12 +481,12 @@ def build_time_block_split(
 
         print(
             f"{name:<10} "
-            f"images={len(part):>5}  "
+            f"images={len(part):>5} "
             f"sources={n_src:>4}"
         )
 
         print(
-            "           ",
+            "            ",
             part["class_name"]
             .value_counts()
             .sort_index()
@@ -517,10 +523,123 @@ def build_time_block_split(
             f"Saved CSVs to {out}/"
         )
 
+        write_split_manifest(
+            output_dir=out,
+            outputs=outputs,
+            sources_before=before,
+            dropped=dropped,
+            closest_gap=closest_gap,
+        )
+
     return (
         outputs["train"],
         outputs["validation"],
         outputs["test"]
+    )
+
+
+def write_split_manifest(
+    output_dir,
+    outputs,
+    sources_before,
+    dropped,
+    closest_gap,
+):
+    output_dir = Path(output_dir)
+
+    manifest = {
+        "split_version": "v2",
+        "seed": SEED,
+        "block_size": BLOCK_SIZE,
+        "buffer_seconds": BUFFER_SECONDS,
+        "validation_fraction": VAL_FRACTION,
+        "test_fraction": TEST_FRACTION,
+        "source_photos_before_buffer": int(sources_before),
+        "source_photos_dropped": int(dropped),
+        "source_photos_kept": int(
+            sum(
+                df["source_id"].nunique()
+                for df in outputs.values()
+            )
+        ),
+        "closest_cross_split_gap_seconds": float(
+            closest_gap
+        ),
+        "image_counts": {},
+        "source_counts": {},
+        "class_counts": {},
+        "blocks_per_class": {},
+        "csv_sha256": {},
+    }
+
+    for split_name, df in outputs.items():
+
+        manifest["image_counts"][split_name] = int(
+            len(df)
+        )
+
+        manifest["source_counts"][split_name] = int(
+            df["source_id"].nunique()
+        )
+
+        manifest["class_counts"][split_name] = {
+            class_name: int(count)
+            for class_name, count in (
+                df["class_name"]
+                .value_counts()
+                .sort_index()
+                .to_dict()
+                .items()
+            )
+        }
+
+        manifest["blocks_per_class"][split_name] = {
+            class_name: int(count)
+            for class_name, count in (
+                df.groupby("class_name")["block_id"]
+                .nunique()
+                .to_dict()
+                .items()
+            )
+        }
+
+        csv_path = (
+            output_dir
+            / f"{split_name}_time_block.csv"
+        )
+
+        sha256 = hashlib.sha256()
+
+        with open(csv_path, "rb") as file:
+            for chunk in iter(
+                lambda: file.read(1024 * 1024),
+                b""
+            ):
+                sha256.update(chunk)
+
+        manifest["csv_sha256"][split_name] = (
+            sha256.hexdigest()
+        )
+
+    manifest_path = (
+        output_dir
+        / "split_manifest.json"
+    )
+
+    with open(
+        manifest_path,
+        "w",
+        encoding="utf-8",
+    ) as file:
+
+        json.dump(
+            manifest,
+            file,
+            indent=2,
+        )
+
+    print(
+        f"Saved manifest to {manifest_path}"
     )
 
 
