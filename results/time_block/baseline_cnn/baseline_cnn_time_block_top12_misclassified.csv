@@ -1,0 +1,13 @@
+image_path,true_class,predicted_class,confidence,source_id
+train/freshoranges/vertical_flip_Screen Shot 2018-06-13 at 12.20.15 AM.png,freshoranges,freshapples,0.99953896,Screen Shot 2018-06-13 at 12.20.15 AM.png_freshoranges
+train/freshoranges/Screen Shot 2018-06-13 at 12.20.15 AM.png,freshoranges,freshapples,0.99952257,Screen Shot 2018-06-13 at 12.20.15 AM.png_freshoranges
+test/freshoranges/rotated_by_15_Screen Shot 2018-06-13 at 12.20.15 AM.png,freshoranges,freshapples,0.9993752,Screen Shot 2018-06-13 at 12.20.15 AM.png_freshoranges
+train/freshoranges/translation_Screen Shot 2018-06-13 at 12.20.15 AM.png,freshoranges,freshapples,0.99930763,Screen Shot 2018-06-13 at 12.20.15 AM.png_freshoranges
+test/freshoranges/saltandpepper_Screen Shot 2018-06-13 at 12.20.15 AM.png,freshoranges,freshapples,0.99929476,Screen Shot 2018-06-13 at 12.20.15 AM.png_freshoranges
+train/freshoranges/rotated_by_30_Screen Shot 2018-06-13 at 12.20.15 AM.png,freshoranges,freshapples,0.99925774,Screen Shot 2018-06-13 at 12.20.15 AM.png_freshoranges
+train/freshoranges/rotated_by_45_Screen Shot 2018-06-13 at 12.20.15 AM.png,freshoranges,freshapples,0.999257,Screen Shot 2018-06-13 at 12.20.15 AM.png_freshoranges
+train/freshoranges/rotated_by_60_Screen Shot 2018-06-13 at 12.20.15 AM.png,freshoranges,freshapples,0.99923384,Screen Shot 2018-06-13 at 12.20.15 AM.png_freshoranges
+test/freshoranges/rotated_by_75_Screen Shot 2018-06-13 at 12.20.15 AM.png,freshoranges,freshapples,0.99920535,Screen Shot 2018-06-13 at 12.20.15 AM.png_freshoranges
+train/freshoranges/translation_Screen Shot 2018-06-13 at 12.20.06 AM.png,freshoranges,freshapples,0.991574,Screen Shot 2018-06-13 at 12.20.06 AM.png_freshoranges
+test/freshoranges/vertical_flip_Screen Shot 2018-06-13 at 12.20.06 AM.png,freshoranges,freshapples,0.9896026,Screen Shot 2018-06-13 at 12.20.06 AM.png_freshoranges
+train/freshoranges/Screen Shot 2018-06-13 at 12.20.06 AM.png,freshoranges,freshapples,0.9891644,Screen Shot 2018-06-13 at 12.20.06 AM.png_freshoranges
