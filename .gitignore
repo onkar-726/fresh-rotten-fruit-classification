@@ -220,3 +220,13 @@ __marimo__/
 
 # Virtual environments
 .venv/
+# Model and large artifact files
+*.keras
+*.h5
+*.zip
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Drive/download artifacts
+drive-download*
