@@ -1,0 +1,92 @@
+{
+  "created_utc": "2026-10-07T10:56:00+00:00",
+  "params": {
+    "block_size": 25,
+    "buffer_seconds": 60,
+    "val_fraction": 0.15,
+    "test_fraction": 0.15,
+    "seed": 42,
+    "method": "time_block",
+    "n_sources_before_buffer": 1511,
+    "n_sources_dropped_by_buffer": 178,
+    "n_sources_untimed": 0
+  },
+  "stats": {
+    "images": {
+      "train": 8280,
+      "validation": 1782,
+      "test": 1935
+    },
+    "sources": {
+      "train": 920,
+      "validation": 198,
+      "test": 215
+    },
+    "images_per_class": {
+      "train": {
+        "freshapples": 1413,
+        "freshbanana": 1053,
+        "freshoranges": 1260,
+        "rottenapples": 1800,
+        "rottenbanana": 1458,
+        "rottenoranges": 1296
+      },
+      "validation": {
+        "freshapples": 162,
+        "freshbanana": 387,
+        "freshoranges": 225,
+        "rottenapples": 342,
+        "rottenbanana": 441,
+        "rottenoranges": 225
+      },
+      "test": {
+        "freshapples": 288,
+        "freshbanana": 225,
+        "freshoranges": 279,
+        "rottenapples": 468,
+        "rottenbanana": 450,
+        "rottenoranges": 225
+      }
+    },
+    "blocks_per_class": {
+      "freshapples": {
+        "test": 2,
+        "train": 7,
+        "validation": 1
+      },
+      "freshbanana": {
+        "test": 1,
+        "train": 6,
+        "validation": 2
+      },
+      "freshoranges": {
+        "test": 2,
+        "train": 6,
+        "validation": 1
+      },
+      "rottenapples": {
+        "test": 3,
+        "train": 9,
+        "validation": 2
+      },
+      "rottenbanana": {
+        "test": 2,
+        "train": 9,
+        "validation": 2
+      },
+      "rottenoranges": {
+        "test": 1,
+        "train": 7,
+        "validation": 1
+      }
+    },
+    "n_images_dropped": 1602,
+    "n_sources_dropped": 178,
+    "min_cross_split_gap_seconds": 60.0
+  },
+  "files": {
+    "train.csv": "9c18e8d499edfdf38f9106927298881e8f3d44aad5cea5b05c9dfaba74aa6626",
+    "validation.csv": "976098e1da161629f1dfd2e75ef9a8f77b325115b3e298347ee03b8b0e049f14",
+    "test.csv": "c2ddddbc7890326942e3be9a03d76bad09eba667361b8ac3ae42688146998696"
+  }
+}
