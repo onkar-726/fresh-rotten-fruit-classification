@@ -42,7 +42,7 @@ def main():
         sys.exit(f"Unknown experiment(s): {unknown}. Choose from {list(config.MOBILENET_EXPERIMENTS)}")
     pretrained = not (a.no_pretrained or os.getenv("FRUIT_NO_PRETRAINED") == "1")
 
-    work = setup_workspace(mount_drive=False)
+    work = setup_workspace()
     root = get_dataset_root()
     print("dataset:", root, "| work dir:", work)
 

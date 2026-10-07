@@ -1,5 +1,4 @@
-pandas==2.2.3
-scikit-learn==1.6.1
-matplotlib==3.10.0
-kagglehub==1.0.2
-Pillow==11.3.0
+# Extra packages for Google Colab ONLY.
+# Colab already ships TensorFlow, numpy, pandas, scikit-learn, matplotlib, pillow:
+# do NOT pin or reinstall them (that can break the runtime).
+kagglehub>=0.3

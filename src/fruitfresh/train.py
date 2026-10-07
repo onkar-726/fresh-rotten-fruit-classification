@@ -1,6 +1,6 @@
 """Training for all project models (with resume support for Colab).
 
-Output layout (inside the work directory, e.g. on Google Drive):
+Output layout (inside the local work directory, default <project>/workspace):
 
     runs/<model>/seed<seed>/
         model.keras          final (best-validation) model
