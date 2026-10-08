@@ -1,0 +1,15 @@
+mobilenet_v2 | validation | 1782 images from 198 source photos
+accuracy 0.9933   macro F1 0.9921
+
+               precision    recall  f1-score   support
+
+  freshapples     0.9939    1.0000    0.9969       162
+  freshbanana     1.0000    1.0000    1.0000       387
+ freshoranges     1.0000    0.9867    0.9933       225
+ rottenapples     0.9912    0.9825    0.9868       342
+ rottenbanana     1.0000    1.0000    1.0000       441
+rottenoranges     0.9652    0.9867    0.9758       225
+
+     accuracy                         0.9933      1782
+    macro avg     0.9917    0.9926    0.9921      1782
+ weighted avg     0.9934    0.9933    0.9933      1782

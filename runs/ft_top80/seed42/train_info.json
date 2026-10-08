@@ -1,0 +1,49 @@
+{
+  "run_name": "ft_top80",
+  "model": "mobilenet_v2",
+  "title": "MobileNetV2 (transfer learning)",
+  "seed": 42,
+  "pretrained": true,
+  "overrides": {
+    "ft_layers": 80
+  },
+  "n_train_images": 8280,
+  "n_val_images": 1782,
+  "image_size": [
+    224,
+    224
+  ],
+  "batch_size": 32,
+  "augment": true,
+  "class_weights": {
+    "0": 0.9766454352441614,
+    "1": 1.3105413105413106,
+    "2": 1.0952380952380953,
+    "3": 0.7666666666666667,
+    "4": 0.9465020576131687,
+    "5": 1.0648148148148149
+  },
+  "dropout": 0.3,
+  "stages": {
+    "finetune": {
+      "trainable_params": 2048134,
+      "total_params": 2265670,
+      "backbone_layers": 154,
+      "backbone_layers_trainable": 53,
+      "backbone_weighted_layers_trainable": 27,
+      "backbone_batchnorm_trainable": 0
+    }
+  },
+  "versions": {
+    "tensorflow": "2.21.0",
+    "keras": "3.13.2",
+    "python": "3.13.15"
+  },
+  "stage1_from": "/content/fruit-freshness-classifier/workspace/runs/mobilenet_v2/seed42/stage1.keras",
+  "training_seconds": 1243.0,
+  "epochs_run": 9,
+  "best_epoch": 5,
+  "best_val_loss": 0.027443047612905502,
+  "best_val_accuracy": 0.9927048087120056,
+  "params": 2265670
+}

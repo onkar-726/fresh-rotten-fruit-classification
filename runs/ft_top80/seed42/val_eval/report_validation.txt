@@ -1,0 +1,15 @@
+ft_top80 | validation | 1782 images from 198 source photos
+accuracy 0.9927   macro F1 0.9907
+
+               precision    recall  f1-score   support
+
+  freshapples     0.9586    1.0000    0.9789       162
+  freshbanana     1.0000    1.0000    1.0000       387
+ freshoranges     1.0000    0.9867    0.9933       225
+ rottenapples     0.9911    0.9795    0.9853       342
+ rottenbanana     1.0000    1.0000    1.0000       441
+rottenoranges     0.9867    0.9867    0.9867       225
+
+     accuracy                         0.9927      1782
+    macro avg     0.9894    0.9921    0.9907      1782
+ weighted avg     0.9928    0.9927    0.9927      1782

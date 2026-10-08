@@ -6,13 +6,12 @@ __pycache__/
 .venv/
 venv/
 
-# Models and large artefacts stay in the local workspace/ folder, not in git
+# Models and large local artefacts
 *.keras
 *.h5
 *.tflite
 *.zip
 workspace/
-runs/
 
 # OS / editor
 .DS_Store

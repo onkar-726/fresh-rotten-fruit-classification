@@ -1,0 +1,46 @@
+{
+  "run_name": "baseline_cnn",
+  "model": "baseline_cnn",
+  "title": "Baseline CNN (from scratch)",
+  "seed": 42,
+  "pretrained": false,
+  "overrides": {},
+  "n_train_images": 8280,
+  "n_val_images": 1782,
+  "image_size": [
+    224,
+    224
+  ],
+  "batch_size": 32,
+  "augment": true,
+  "class_weights": {
+    "0": 0.9766454352441614,
+    "1": 1.3105413105413106,
+    "2": 1.0952380952380953,
+    "3": 0.7666666666666667,
+    "4": 0.9465020576131687,
+    "5": 1.0648148148148149
+  },
+  "dropout": 0.3,
+  "stages": {
+    "all": {
+      "trainable_params": 1174758,
+      "total_params": 1176678,
+      "backbone_layers": 29,
+      "backbone_layers_trainable": 29,
+      "backbone_weighted_layers_trainable": 16,
+      "backbone_batchnorm_trainable": 8
+    }
+  },
+  "versions": {
+    "tensorflow": "2.21.0",
+    "keras": "3.13.2",
+    "python": "3.13.15"
+  },
+  "training_seconds": 2447.2,
+  "epochs_run": 17,
+  "best_epoch": 11,
+  "best_val_loss": 0.20021764934062958,
+  "best_val_accuracy": 0.924803614616394,
+  "params": 1176678
+}

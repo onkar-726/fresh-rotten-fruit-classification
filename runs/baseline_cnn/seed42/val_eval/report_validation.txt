@@ -1,0 +1,15 @@
+baseline_cnn | validation | 1782 images from 198 source photos
+accuracy 0.9248   macro F1 0.9182
+
+               precision    recall  f1-score   support
+
+  freshapples     0.8547    0.9444    0.8974       162
+  freshbanana     0.9589    0.9638    0.9613       387
+ freshoranges     0.8964    1.0000    0.9454       225
+ rottenapples     0.9115    0.8129    0.8594       342
+ rottenbanana     0.9789    0.9456    0.9619       441
+rottenoranges     0.8707    0.8978    0.8840       225
+
+     accuracy                         0.9248      1782
+    macro avg     0.9118    0.9274    0.9182      1782
+ weighted avg     0.9262    0.9248    0.9243      1782

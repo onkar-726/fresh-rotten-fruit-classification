@@ -1,0 +1,15 @@
+ft_lr_5e-5 | validation | 1782 images from 198 source photos
+accuracy 0.9910   macro F1 0.9890
+
+               precision    recall  f1-score   support
+
+  freshapples     0.9529    1.0000    0.9759       162
+  freshbanana     1.0000    1.0000    1.0000       387
+ freshoranges     1.0000    0.9956    0.9978       225
+ rottenapples     0.9970    0.9591    0.9776       342
+ rottenbanana     1.0000    1.0000    1.0000       441
+rottenoranges     0.9697    0.9956    0.9825       225
+
+     accuracy                         0.9910      1782
+    macro avg     0.9866    0.9917    0.9890      1782
+ weighted avg     0.9913    0.9910    0.9910      1782
